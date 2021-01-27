@@ -1,9 +1,7 @@
-function add(num1, num2) {
- //console.log("INPUT", num1, num2);
- const sum = num1 + num2;
-// console.log("SUM", sum);
- return sum;
-}
+// Importeren van index.js
+const add = require("./index").add;
+const findByName = require("./index").findByName;
+// const { add, findByName } = require("./index");  is een andere manier van exporteren
 
 test("add() function should return the sum of 2 numbers",()=> {
  
@@ -19,22 +17,6 @@ test("add() function should return the sum of 2 numbers",()=> {
   expect(sum).toBe(9); //expect en toBe komen uit Jest(zie documentatie)
 
 });
-
-function findByName(users, name) {
- //console.log("INPUT:", users, name);
- // 1.loop maken
- // 2.if statement: is de name het zelfde als de naam uit het object
- // 3. zo ja return dat object
- for (let index = 0; index < users.length; index++) {
-  const user = users[index];
- // console.log("USER 1 voor 1?",user.name);
-  if (user.name === name) {
-   //  console.log("GEVONDEN",user);
-   return user;
-  }
- }
- return null;
-}
 
 test("findByName() returns an object from an array with a specified name", ()=> {
     //arrange
